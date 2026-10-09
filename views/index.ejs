@@ -10,6 +10,35 @@
 </head>
 <body>
     <h1><%= title %></h1>
-    Hello EJS!
+
+    <table>
+        <thead>
+            <th>Termek neve</th>
+            <th>Ar</th>
+            <th>Raktarkeszlet</th>
+        </thead>
+        <tbody>
+                <% termekLista.forEach(a=> { %>
+                    <tr class="<%= a.stock < 5 ? 'lessStock':'' %>">
+                        <td>
+                            <%= a.name %>
+                        
+                        </td>
+                        <td>
+                            <%= a.price %>
+                        </td>
+
+                        <td>
+                            <%= a.stock %>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+    </table>
+    <br>
+    <a href="./filter">szurt adatok</a>
+    <br>
+    <a href="./new">Uj adat felvetele</a>
+
 </body>
 </html>

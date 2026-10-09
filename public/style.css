@@ -3,3 +3,12 @@ body {
     color:rgb(58, 46, 135);
 }
 
+.lessStock{
+    color:  red;
+    font-weight: bold;
+
+}
+
+.success {
+    color: green;
+}

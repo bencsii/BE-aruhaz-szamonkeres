@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title><%= title %></title>
+</head>
+<body>
+    <h1><%= title %></h1>
+
+    <form action="/new" method="post">
+        
+            <label for="name">termek neve:</label>
+            <input id="name" name="name" type="text" required>
+        
+            <label for="category">kategoria</label>
+            <select id="category" name="category" required>
+                <option value="">Kategoria valasztas</option>
+                <option value="elektronika">Elektronika</option>
+                <option value="ruházat">Ruházat</option>
+                <option value="könyv">Könyv</option>
+                <option value="játék">Játék</option>
+            </select>
+        
+            <label for="price">ar:</label>
+            <input id="price" name="price" type="number" required>
+        
+            <label for="stock">raktarkeszlett:</label>
+            <input id="stock" name="stock" type="number" required>
+        
+        <button type="submit">Send</button>
+    </form>
+    <% if(successMessage) { %>
+        <p class="success"><%= successMessage %></p>
+    <% } %>
+
+    <a href="/">Vissza</a>
+</body>
+</html>

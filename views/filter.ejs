@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1><%= title %></h1>
+
+    <form action="/filter" method="get">
+        <label for="category">Kategoria:</label>
+        <select id="category" name="category">
+            <option value="">Minden kategoria</option>
+            <option value="elektronika" <%= selectedCategory === 'elektronika' ? 'selected' : '' %>>Elektronika</option>
+            <option value="ruházat" <%= selectedCategory === 'ruházat' ? 'selected' : '' %>>Ruházat</option>
+            <option value="könyv" <%= selectedCategory === 'könyv' ? 'selected' : '' %>>Könyv</option>
+            <option value="játék" <%= selectedCategory === 'játék' ? 'selected' : '' %>>Játék</option>
+        </select>
+        <button type="submit">Szűrés</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>termek neve</th>
+                <th>ar</th>
+                <th>raktárkeszlet</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% termekLista.forEach((termek) => { %>
+                <tr class="<%= termek.stock < 5 ? 'lessStock' : '' %>">
+                    <td><%= termek.name %></td>
+                    <td><%= termek.price %></td>
+                    <td><%= termek.stock %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <br>
+    <a href="./">Vissza</a>
+</body>
+</html>
