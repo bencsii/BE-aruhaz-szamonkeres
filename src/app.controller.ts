@@ -104,7 +104,7 @@ export class AppController {
   @Render('new')
   GiveNewData() {
     return {
-      title: 'Uj termek felvetel',
+      title: 'Termek felveve',
       successMessage: '',
     }
   }
